@@ -1,0 +1,5 @@
+"outcome","model_id","n","nevent","loglik_null","loglik_fit","aic","concordance","concordance_se","cause_group","n_valid_eventcoding","n_events_target"
+"cause_specific_circulatory","CS_circulatory_M3_ic5",5083,340,-2855.95611117283,-2520.99478585003,5105.98957170005,0.857889079756195,0.00916835814798945,"circulatory",6550,435
+"cause_specific_cancer","CS_cancer_M3_ic5",5083,322,-2714.35743719301,-2587.55175723105,5239.10351446211,0.733576028562848,0.014329576460199,"cancer",6550,406
+"cause_specific_respiratory","CS_respiratory_M3_ic5",5083,113,-949.133281237978,-808.658972491264,1681.31794498253,0.8740476437059,0.016537662514726,"respiratory",6550,154
+"cause_specific_other","CS_other_M3_ic5",5083,125,-1052.41315452856,-933.812551123879,1931.62510224776,0.833164658215522,0.018105259398318,"other",6550,164
