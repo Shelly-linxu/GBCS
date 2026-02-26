@@ -209,6 +209,116 @@ write_csv_safe <- function(df, path) {
   utils::write.csv(df, path, row.names = FALSE, na = "")
 }
 
+as_numeric_vec <- function(x) {
+  if (inherits(x, "haven_labelled")) x <- unclass(x)
+  suppressWarnings(as.numeric(x))
+}
+
+new_ipaq_category_var <- function(x, var_label) {
+  haven::labelled(
+    as.numeric(x),
+    labels = c(
+      "Category 1 (Low)" = 1,
+      "Category 2 (Moderate)" = 2,
+      "Category 3 (High)" = 3
+    ),
+    label = var_label
+  )
+}
+
+recode_ipaq_zero_based <- function(x, var_label) {
+  x_num <- as_numeric_vec(x)
+  out <- rep(NA_real_, length(x_num))
+  out[!is.na(x_num) & x_num %in% c(0, 1, 2)] <- x_num[!is.na(x_num) & x_num %in% c(0, 1, 2)] + 1
+  new_ipaq_category_var(out, var_label)
+}
+
+recode_ipaq_one_based <- function(x, var_label) {
+  x_num <- as_numeric_vec(x)
+  out <- rep(NA_real_, length(x_num))
+  out[!is.na(x_num) & x_num %in% c(1, 2, 3)] <- x_num[!is.na(x_num) & x_num %in% c(1, 2, 3)]
+  new_ipaq_category_var(out, var_label)
+}
+
+compute_ipaq_category_from_v7 <- function(df, suffix = "", var_label) {
+  getv <- function(stem) {
+    nm <- paste0(stem, suffix)
+    if (!(nm %in% names(df))) return(rep(NA_real_, nrow(df)))
+    as_numeric_vec(df[[nm]])
+  }
+
+  v7_1a <- getv("v7_1a")
+  v7_1b <- getv("v7_1b")
+  v7_2a <- getv("v7_2a")
+  v7_2b <- getv("v7_2b")
+
+  v7_3a <- getv("v7_3a")
+  v7_3b <- getv("v7_3b")
+  v7_4a <- getv("v7_4a")
+  v7_4b <- getv("v7_4b")
+
+  v7_5a <- getv("v7_5a")
+  v7_5b <- getv("v7_5b")
+  v7_6a <- getv("v7_6a")
+  v7_6b <- getv("v7_6b")
+
+  any_info <- rowSums(!is.na(cbind(
+    v7_1a, v7_1b, v7_2a, v7_2b,
+    v7_3a, v7_3b, v7_4a, v7_4b,
+    v7_5a, v7_5b, v7_6a, v7_6b
+  ))) > 0
+
+  use_vig <- !is.na(v7_1a) & v7_1a == 1
+  use_mod <- !is.na(v7_3a) & v7_3a == 1
+  use_walk <- !is.na(v7_5a) & v7_5a == 1
+
+  calc_minutes_week <- function(days, min_day, min_week, eligible) {
+    out <- rep(0, length(days))
+    out[eligible & !is.na(min_week)] <- min_week[eligible & !is.na(min_week)]
+    need_derive <- eligible & is.na(min_week) & !is.na(days) & !is.na(min_day)
+    out[need_derive] <- days[need_derive] * min_day[need_derive]
+    out[eligible & out < 0] <- NA_real_
+    out
+  }
+
+  calc_minutes_day <- function(days, min_day, min_week, eligible) {
+    out <- rep(0, length(days))
+    out[eligible & !is.na(min_day)] <- min_day[eligible & !is.na(min_day)]
+    need_derive <- eligible & is.na(min_day) & !is.na(min_week) & !is.na(days) & days > 0
+    out[need_derive] <- min_week[need_derive] / days[need_derive]
+    out[eligible & out < 0] <- NA_real_
+    out
+  }
+
+  d_vig <- ifelse(use_vig & !is.na(v7_1b), v7_1b, 0)
+  d_mod <- ifelse(use_mod & !is.na(v7_3b), v7_3b, 0)
+  d_walk <- ifelse(use_walk & !is.na(v7_5b), v7_5b, 0)
+
+  mw_vig <- calc_minutes_week(v7_1b, v7_2a, v7_2b, use_vig)
+  mw_mod <- calc_minutes_week(v7_3b, v7_4a, v7_4b, use_mod)
+  mw_walk <- calc_minutes_week(v7_5b, v7_6a, v7_6b, use_walk)
+
+  md_vig <- calc_minutes_day(v7_1b, v7_2a, v7_2b, use_vig)
+  md_mod <- calc_minutes_day(v7_3b, v7_4a, v7_4b, use_mod)
+  md_walk <- calc_minutes_day(v7_5b, v7_6a, v7_6b, use_walk)
+
+  total_days <- d_vig + d_mod + d_walk
+  total_met <- 8 * mw_vig + 4 * mw_mod + 3.3 * mw_walk
+  vig_met <- 8 * mw_vig
+
+  is_high <- (d_vig >= 3 & vig_met >= 1500) | (total_days >= 7 & total_met >= 3000)
+  is_moderate <- (d_vig >= 3 & md_vig >= 20) |
+    (((d_mod >= 5 & md_mod >= 30) | (d_walk >= 5 & md_walk >= 30))) |
+    (total_days >= 5 & total_met >= 600)
+
+  out <- rep(NA_real_, nrow(df))
+  out[any_info] <- 1
+  out[is_moderate] <- 2
+  out[is_high] <- 3
+
+  new_ipaq_category_var(out, var_label)
+}
+
 cat("Reading source datasets...\n")
 fu_path <- file.path(data_dir, "fu_may2014.dta")
 g3_path <- file.path(data_dir, "gbcs3+端粒.dta")
@@ -277,6 +387,33 @@ merged <- fu %>%
 
 if ("matched_g3" %in% names(merged)) merged$matched_g3[is.na(merged$matched_g3)] <- FALSE
 if ("matched_g4" %in% names(merged)) merged$matched_g4[is.na(merged$matched_g4)] <- FALSE
+
+cat("Creating standardized IPAQ category variables (1=Low, 2=Moderate, 3=High)...\n")
+merged$IPAQ_cat_bl <- if ("ipaq" %in% names(merged)) {
+  recode_ipaq_zero_based(merged$ipaq, "IPAQ category baseline (1=Low, 2=Moderate, 3=High)")
+} else {
+  new_ipaq_category_var(rep(NA_real_, nrow(merged)), "IPAQ category baseline (missing source: ipaq)")
+}
+
+merged$IPAQ_cat_f1 <- compute_ipaq_category_from_v7(
+  merged,
+  suffix = "_f",
+  var_label = "IPAQ category follow-up 1 from v7_*_f (1=Low, 2=Moderate, 3=High)"
+)
+
+merged$IPAQ_cat_f2 <- if ("ipaq_f2" %in% names(merged)) {
+  recode_ipaq_one_based(merged$ipaq_f2, "IPAQ category follow-up 2 (1=Low, 2=Moderate, 3=High)")
+} else if ("ipaq_g3" %in% names(merged)) {
+  recode_ipaq_zero_based(merged$ipaq_g3, "IPAQ category follow-up 2 from ipaq_g3 (1=Low, 2=Moderate, 3=High)")
+} else {
+  new_ipaq_category_var(rep(NA_real_, nrow(merged)), "IPAQ category follow-up 2 (missing source)")
+}
+
+merged$IPAQ_cat_f3 <- if ("ipaq_f3" %in% names(merged)) {
+  recode_ipaq_zero_based(merged$ipaq_f3, "IPAQ category follow-up 3 (1=Low, 2=Moderate, 3=High)")
+} else {
+  new_ipaq_category_var(rep(NA_real_, nrow(merged)), "IPAQ category follow-up 3 (missing source: ipaq_f3)")
+}
 
 qc_summary <- tibble(
   metric = c(
