@@ -1,0 +1,9 @@
+Input files: 4
+Rows before merge/dedup: 22171
+Rows after dedup: 9039
+Duplicate IDs found: 7559
+Rows involved in duplicate IDs: 20691
+ID priority used: ADNO -> QNO -> QNO2 -> SNO -> SNO2 -> A1
+Output SAV: /Users/linxu/Documents/breast cancer/output/merged_cleaned_dedup_20260220_161219.sav
+Output CSV: /Users/linxu/Documents/breast cancer/output/merged_cleaned_dedup_20260220_161219.csv
+Duplicate detail CSV: /Users/linxu/Documents/breast cancer/output/duplicate_detail_20260220_161219.csv

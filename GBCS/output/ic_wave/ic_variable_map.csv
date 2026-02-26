@@ -1,0 +1,144 @@
+"wave","role","variable","label","present"
+"BL","tug1","v13_7d","get up & go 1",TRUE
+"BL","tug2","v13_7e","get up & go 2",TRUE
+"BL","grip_left_1","v13_7f","handgrip l1",TRUE
+"BL","grip_left_2","v13_7g","handgrip l2",TRUE
+"BL","grip_right_1","v13_7h","handgrip r1",TRUE
+"BL","grip_right_2","v13_7i","handgrip r2",TRUE
+"BL","mmse_a","v20_1a","mmse 1 date (5)",TRUE
+"BL","mmse_b","v20_1b","mmse 2 location (5)",TRUE
+"BL","mmse_c","v20_1c","mmse 3 recall 1 (3)",TRUE
+"BL","mmse_e","v20_1e","mmse 4 math (5)",TRUE
+"BL","mmse_f","v20_1f","mmse 5 recall 2 (3)",TRUE
+"BL","mmse_g","v20_1g","mmse 6 objects (2)",TRUE
+"BL","mmse_h","v20_1h","mmse 7 tongue twister (1)",TRUE
+"BL","mmse_i","v20_1i","mmse 8 instruction (3)",TRUE
+"BL","mmse_j","v20_1j","mmse 9 action (1)",TRUE
+"BL","mmse_k","v20_1k","mmse 10 sentence (1)",TRUE
+"BL","mmse_l","v20_1l","mmse 11 drawing (1)",TRUE
+"BL","gds_a","v20_3a","satisfied with life",TRUE
+"BL","gds_b","v20_3b","dropped activities & interests",TRUE
+"BL","gds_c","v20_3c","life is empty",TRUE
+"BL","gds_d","v20_3d","often get bored",TRUE
+"BL","gds_e","v20_3e","in good spirits most time",TRUE
+"BL","gds_f","v20_3f","something bad going to happen",TRUE
+"BL","gds_g","v20_3g","happy most time",TRUE
+"BL","gds_h","v20_3h","feel helpless",TRUE
+"BL","gds_i","v20_3i","prefer to stay home",TRUE
+"BL","gds_j","v20_3j","more problems with memory than others",TRUE
+"BL","gds_k","v20_3k","wonderful to be alive",TRUE
+"BL","gds_l","v20_3l","worthless",TRUE
+"BL","gds_m","v20_3m","full of energy",TRUE
+"BL","gds_n","v20_3n","situation hopeless",TRUE
+"BL","gds_o","v20_3o","others better off",TRUE
+"BL","vision","v10_19c","eyesight",TRUE
+"BL","hearing","v10_20c","how is hearing",TRUE
+"BL","bmi","bmi","",TRUE
+"BL","height","height","height",TRUE
+"BL","weight","weight","weight",TRUE
+"BL","exam_date","examdate","19_5",TRUE
+"F1","tug1","v13_7d_f","get up & go 1",TRUE
+"F1","tug2","v13_7e_f","get up & go 2",TRUE
+"F1","grip_left_1","v13_7f_f","handgrip l1, kg",TRUE
+"F1","grip_left_2","v13_7h_f","handgrip l2, kg",TRUE
+"F1","grip_right_1","v13_7g_f","handgrip r1, kg",TRUE
+"F1","grip_right_2","v13_7i_f","handgrip r2, kg",TRUE
+"F1","mmse_a","v20_1a_f","mmse 1 date (5)",TRUE
+"F1","mmse_b","v20_1b_f","mmse 2 location (5)",TRUE
+"F1","mmse_c","v20_1c_f","mmse 3 recall 1 (3)",TRUE
+"F1","mmse_e","v20_1e_f","mmse 4 math (5)",TRUE
+"F1","mmse_f","v20_1f_f","mmse 5 recall 2 (3)",TRUE
+"F1","mmse_g","v20_1g_f","mmse 6 objects (2)",TRUE
+"F1","mmse_h","v20_1h_f","mmse 7 tongue twister (1)",TRUE
+"F1","mmse_i","v20_1i_f","mmse 8 instruction (3)",TRUE
+"F1","mmse_j","v20_1j_f","mmse 9 action (1)",TRUE
+"F1","mmse_k","v20_1k_f","mmse 10 sentence (1)",TRUE
+"F1","mmse_l","v20_1l_f","mmse 11 drawing (1)",TRUE
+"F1","gds_a","v20_3a_f","satisfied with life",TRUE
+"F1","gds_b","v20_3b_f","dropped activities & interests",TRUE
+"F1","gds_c","v20_3c_f","life is empty",TRUE
+"F1","gds_d","v20_3d_f","often get bored",TRUE
+"F1","gds_e","v20_3e_f","in good spirits most time",TRUE
+"F1","gds_f","v20_3f_f","something bad going to happen",TRUE
+"F1","gds_g","v20_3g_f","happy most time",TRUE
+"F1","gds_h","v20_3h_f","feel helpless",TRUE
+"F1","gds_i","v20_3i_f","prefer to stay home",TRUE
+"F1","gds_j","v20_3j_f","more problems with memory than others",TRUE
+"F1","gds_k","v20_3k_f","wonderful to be alive",TRUE
+"F1","gds_l","v20_3l_f","worthless",TRUE
+"F1","gds_m","v20_3m_f","full of energy",TRUE
+"F1","gds_n","v20_3n_f","situation hopeless",TRUE
+"F1","gds_o","v20_3o_f","others better off",TRUE
+"F1","weight","weight_f","weight (kg)",TRUE
+"F1","height_proxy","height","height",TRUE
+"F1","exam_date","reg_date_f","",TRUE
+"F2","tug1","v13_7d_f2","Standing Walking Test (1st time)",TRUE
+"F2","tug2","v13_7e_f2","Standing Walking Test (2nd time)",TRUE
+"F2","grip_left_1","v13_7f_f2","Left hand grip strength test (1st time, kg)",TRUE
+"F2","grip_left_2","v13_7g_f2","Left hand grip strength test (2nd time, kg)",TRUE
+"F2","grip_right_1","v13_7h_f2","Right hand grip strength test (1st time, kg)",TRUE
+"F2","grip_right_2","v13_7i_f2","Right hand grip strength test (2nd time, kg)",TRUE
+"F2","mmse_a","v20_1a_f2","mmse 1 date (5)",TRUE
+"F2","mmse_b","v20_1b_f2","mmse 2 location (5)",TRUE
+"F2","mmse_c","v20_1c_f2","mmse 3 recall 1 (3)",TRUE
+"F2","mmse_e","v20_1e_f2","mmse 4 math (5)",TRUE
+"F2","mmse_f","v20_1f_f2","mmse 5 recall 2 (3)",TRUE
+"F2","mmse_g","v20_1g_f2","mmse 6 objects (2)",TRUE
+"F2","mmse_h","v20_1h_f2","mmse 7 tongue twister (1)",TRUE
+"F2","mmse_i","v20_1i_f2","mmse 8 instruction (3)",TRUE
+"F2","mmse_j","v20_1j_f2","mmse 9 action (1)",TRUE
+"F2","mmse_k","v20_1k_f2","mmse 10 sentence (1)",TRUE
+"F2","mmse_l","v20_1l_f2","mmse 11 drawing (1)",TRUE
+"F2","gds_a","v20_3a_f2","satisfied with life",TRUE
+"F2","gds_b","v20_3b_f2","dropped activities & interests",TRUE
+"F2","gds_c","v20_3c_f2","life is empty",TRUE
+"F2","gds_d","v20_3d_f2","often get bored",TRUE
+"F2","gds_e","v20_3e_f2","in good spirits most time",TRUE
+"F2","gds_f","v20_3f_f2","something bad going to happen",TRUE
+"F2","gds_g","v20_3g_f2","happy most time",TRUE
+"F2","gds_h","v20_3h_f2","feel helpless",TRUE
+"F2","gds_i","v20_3i_f2","prefer to stay home",TRUE
+"F2","gds_j","v20_3j_f2","more problems with memory than others",TRUE
+"F2","gds_k","v20_3k_f2","wonderful to be alive",TRUE
+"F2","gds_l","v20_3l_f2","worthless",TRUE
+"F2","gds_m","v20_3m_f2","full of energy",TRUE
+"F2","gds_n","v20_3n_f2","situation hopeless",TRUE
+"F2","gds_o","v20_3o_f2","others better off",TRUE
+"F2","weight","v13_9n_f2","Weight(kg)",TRUE
+"F2","height","v13_3_f2","Height",TRUE
+"F2","exam_date","reg_date_f2","Entry time",TRUE
+"F3","tug1","v13_7d_f3","get up & go 1",TRUE
+"F3","tug2","v13_7e_f3","get up & go 2",TRUE
+"F3","grip_left_1","v13_7f_f3","handgrip l1, kg",TRUE
+"F3","grip_left_2","v13_7h_f3","handgrip l2, kg",TRUE
+"F3","grip_right_1","v13_7g_f3","handgrip r1, kg",TRUE
+"F3","grip_right_2","v13_7i_f3","handgrip r2, kg",TRUE
+"F3","mmse_a","v20_1a_f3","mmse 1 date (5)",TRUE
+"F3","mmse_b","v20_1b_f3","mmse 2 location (5)",TRUE
+"F3","mmse_c","v20_1c_f3","mmse 3 recall 1 (3)",TRUE
+"F3","mmse_e","v20_1e_f3","mmse 4 math (5)",TRUE
+"F3","mmse_f","v20_1f_f3","mmse 5 recall 2 (3)",TRUE
+"F3","mmse_g","v20_1g_f3","mmse 6 objects (2)",TRUE
+"F3","mmse_h","v20_1h_f3","mmse 7 tongue twister (1)",TRUE
+"F3","mmse_i","v20_1i_f3","mmse 8 instruction (3)",TRUE
+"F3","mmse_j","v20_1j_f3","mmse 9 action (1)",TRUE
+"F3","mmse_k","v20_1k_f3","mmse 10 sentence (1)",TRUE
+"F3","mmse_l","v20_1l_f3","mmse 11 drawing (1)",TRUE
+"F3","gds_a","v20_3a_f3","satisfied with life",TRUE
+"F3","gds_b","v20_3b_f3","dropped activities & interests",TRUE
+"F3","gds_c","v20_3c_f3","life is empty",TRUE
+"F3","gds_d","v20_3d_f3","often get bored",TRUE
+"F3","gds_e","v20_3e_f3","in good spirits most time",TRUE
+"F3","gds_f","v20_3f_f3","something bad going to happen",TRUE
+"F3","gds_g","v20_3g_f3","happy most time",TRUE
+"F3","gds_h","v20_3h_f3","feel helpless",TRUE
+"F3","gds_i","v20_3i_f3","prefer to stay home",TRUE
+"F3","gds_j","v20_3j_f3","more problems with memory than others",TRUE
+"F3","gds_k","v20_3k_f3","wonderful to be alive",TRUE
+"F3","gds_l","v20_3l_f3","worthless",TRUE
+"F3","gds_m","v20_3m_f3","full of energy",TRUE
+"F3","gds_n","v20_3n_f3","situation hopeless",TRUE
+"F3","gds_o","v20_3o_f3","others better off",TRUE
+"F3","weight","weight_f3","weight (kg)",TRUE
+"F3","height","height_f3","height (cm)",TRUE
+"F3","exam_date","reg_date_f3","",TRUE
