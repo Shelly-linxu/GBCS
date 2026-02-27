@@ -1,0 +1,19 @@
+"wave","timepoint","category","n","pct"
+"F1 (first follow-up; derived from v7_*_f)","baseline","Low",1476,8.15469613259669
+"F1 (first follow-up; derived from v7_*_f)","baseline","Moderate",7192,39.7348066298343
+"F1 (first follow-up; derived from v7_*_f)","baseline","High",9432,52.1104972375691
+"F1 (first follow-up; derived from v7_*_f)","followup","Low",397,2.19337016574586
+"F1 (first follow-up; derived from v7_*_f)","followup","Moderate",3701,20.4475138121547
+"F1 (first follow-up; derived from v7_*_f)","followup","High",14002,77.3591160220994
+"F2","baseline","Low",931,8.81128146886239
+"F2","baseline","Moderate",4074,38.557637705849
+"F2","baseline","High",5561,52.6310808252887
+"F2","followup","Low",129,1.22089721749006
+"F2","followup","Moderate",3838,36.3240583002082
+"F2","followup","High",6599,62.4550444823017
+"F3","baseline","Low",469,8.71909276817252
+"F3","baseline","Moderate",2043,37.9810373675404
+"F3","baseline","High",2867,53.299869864287
+"F3","followup","Low",30,0.557724484104852
+"F3","followup","Moderate",1588,29.5222160252835
+"F3","followup","High",3761,69.9200594906116
