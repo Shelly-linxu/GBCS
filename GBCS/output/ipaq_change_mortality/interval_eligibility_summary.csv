@@ -1,0 +1,4 @@
+"interval","n_landmark_valid","n_events","n_ipaq_change_nonmissing","n_met_change_nonmissing","followup_mean_years","followup_median_years"
+"BL_to_F1",18103,3944,18074,18051,12.8397883538349,13.5605749486653
+"F1_to_F2",10547,1383,10364,10349,9.12399586557794,9.67008898015058
+"F2_to_F3",5372,479,5372,5358,6.55337407491783,6.8993839835729
